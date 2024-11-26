@@ -1,27 +1,29 @@
-//importamos archivo de conexion que utilizaremos
-const { DataTypes } = require("sequelize");
-const sequelize = require("../bd/database");
 
-const Asignatura = sequelize(
-  "Asignatura",
-  {
+
+const { DataTypes } = require('sequelize')
+const sequelize = require('../bd/database')
+
+const Asignatura = sequelize.define('Asignatura', {
     idasignatura: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
     },
     nombre: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false
     },
     estado: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-  },
-  {
-    tableName: "asignatura",
-    timesTamps: false,  }
-);
+        type: DataTypes.INTEGER,
+        allowNull: false
 
-module.exports= Asignatura;
+    },
+},
+{
+    tableName: 'Asignatura',
+    timestamps: false, // Desactiva las columnas createdAt y updatedAt
+  }
+
+)
+
+module.exports=Asignatura;

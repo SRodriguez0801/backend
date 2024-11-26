@@ -1,36 +1,36 @@
-//importamos archivo de conexion que utilizaremos
-const { DataTypes } = require("sequelize");
-const sequelize = require("../bd/database");
 
-const Estudiante = sequelize(
-  "Estudiante",
-  {
+
+const { DataTypes } = require('sequelize')
+const sequelize = require('../bd/database')
+
+const Estudiante = sequelize.define('Estudiante', {
     idestudiante: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
     },
     nombre: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false
     },
     apellido: {
-      type: DataTypes.STRING,
-      allowNull: false,
+        type: DataTypes.STRING,
+        allowNull: false
+
     },
-    correo: {
+    correo:{
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-      telefono: {
+        allowNull: false
+    },
+    telefono:{
         type: DataTypes.STRING,
-        allowNull: false,
-      },
-  },
-  {
-    tableName: "estudiante",
-    timesTamps: false
-  }
-);
+        allowNull: false   
+    }
+},
+    {
+        tableName: 'Estudiante',
+        timestamps: false
+    }
+)
 
 module.exports= Estudiante;
